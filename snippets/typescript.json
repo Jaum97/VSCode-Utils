@@ -1,0 +1,15 @@
+{
+  	"create type file": {
+		"prefix": "dftype",
+		"body": "export default interface IProps {$1}"
+	},
+	"create styled-components file": {
+		"prefix": "dfstyled",
+		"body": [
+			"import styled from 'styled-components'",
+			"\nexport const $1 = styled($2)`",
+			"$3",
+			"\n`"
+		]
+	}
+}
