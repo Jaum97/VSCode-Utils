@@ -1,5 +1,5 @@
 {
-	// Place your snippets for typescript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and 
 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
 	// same ids are connected.
@@ -11,61 +11,22 @@
 	// 		"$2"
 	// 	],
 	// 	"description": "Log output to console"
-	// }
-	"create default container file": {
-		"prefix": "dfcontainer",
+	//// }
+	"create default view component": {
+		"prefix": "dfview",
 		"body": [
-			"import { createElement } from 'react'",
-			"\nimport IProps, { IViewProps } from './types'",
-			"\nimport $1 from './view'",
-			"\nfunction $1Container(props: IProps): JSX.Element {",
-			"\n\tconst { $2 } = props",
-			"\n\tconst viewProps: IViewProps = { $3 }",
-			"\n\treturn createElement($1, viewProps)",
-			"\n}",
-			"\nexport default $1Container"
-		]
-	},
-	"create default connected container file": {
-		"prefix": "dfcontainerconnect",
-		"body": [
-			"import { createElement } from 'react'",
-			"\nimport { connect } from 'react-redux'",
-			"\nimport IProps, { IViewProps } from './types'",
-			"\nimport $1 from './view'",
-			"\nimport { store } from '@store'",
-			"import { defaultProps } from '@store/defaultProps'",
-			"import { defaultActions } from '@store/defaultActions'",
-			"\nimport IStore from '@models/Store'",
-			"import { IActionProps } from '@models/ActionProps'",
-			"\nfunction $1Container(props: IProps): JSX.Element {",
-			"\n\tconst { $2 } = props",
-			"\n\tconst viewProps: IViewProps = { $3 }",
-			"\n\treturn createElement($1, viewProps)",
-			"\n}",
-			"\nconst mapStateToProps = (state): IStore => defaultProps(state)",
-			"const mapDispatchToProps = (dispatch): IActionProps => defaultActions(dispatch)",
-			"\nexport default connect(",
-			"\tmapStateToProps,",
-			"\tmapDispatchToProps,",
-			")($1Container)",
-		]
-	},
-	"create default type file": {
-		"prefix": "dftype",
-		"body": [
-			"export default interface IProps { $1 }",
-			"\nexport interface IViewProps { $2 }"
-		]
-	},
-	"create default styled components file": {
-		"prefix": "dfstyle",
-		"body": [
-			"import styled from 'styled-components/native'",
-			"import { $2 } from 'react-native'",
-			"\nexport const $1 = styled($2)`",
-			"\t$3",
-			"`"
+			"import React, { Fragment } from 'react'",
+			"\nimport { IViewProps } from './types'",
+			"\nimport {$3} from './styles'",
+			"\nfunction $1(props: IViewProps): JSX.Element {",
+			"\tconst {$2} = props",
+			"\n\treturn (",
+			"\t\t<Fragment>",
+			"\t\t\t$4",
+			"\t\t</Fragment>",
+			"\t)",
+			"}",
+			"\nexport default $1"
 		]
 	},
 	"create default handler": {
@@ -93,17 +54,4 @@
 		"prefix": "dfdes",
 		"body": "const { $1 } = props",
 	},
-	"create default styled-component": {
-		"prefix": "dfstyled",
-		"body": [
-			"\nexport const $1 = styled($2)`",
-			"\t$3",
-			"`"
-		],
-	},
-	"create default interface": {
-		"prefix": "dfint",
-		"body": "export default interface I$1 { $2 }",
-	},
 }
-
